@@ -571,4 +571,52 @@ uma métrica que balanceia precisão e recall.
 
 ### Resultados
 
+Neste capítulo são apresentados os resultados obtidos a partir dos experimentos
+realizados conforme a metodologia previamente descrita. Os experimentos foram realizados
+com o objetivo de criar e avaliar diferentes modelos de classificação para detectar a
+presença de conteúdo persuasivo no texto do meme. Para isso, a base de treino foi utilizada
+para treinar os classificadores e a base de teste foi utilizada para estimar o desempenho
+preditivo dos modelos.
 
+Para resolver o problema do desbalanceamento da base, utilizou-se os métodos
+de balanceamento de base descritos na metodologia. Foram utilizados os atributos preditivos
+apresentados na seção metodológica, que foram obtidos através da engenharia de
+características. A partir desses atributos, diferentes combinações foram realizadas nos experimentos.
+A seguir, apresentam-se os atributos utilizados em cada um dos experimentos.
+
+* Atributos utilizados por Cruz et al. (2019), desconsiderando a medida TF-IDF.
+* Atributos utilizados por Cruz et al. (2019) com a medida TF-IDF para os 50
+bigramas mais frequentes.
+* Atributos utilizados por Cruz et al. (2019) com a medida TF-IDF para os 50
+unigramas mais frequentes.
+
+#### Resultados Gerais
+
+No `experimento 1` podemos obter o efeito isolado dos atributos gerados pela engenharia
+de características, sem considerar o TF-IDF. Os experimentos 2 e 3 nos fornecem
+o efeito conjunto dos atributos e a medida TF-IDF, com bigramas e unigramas, respectivamente.
+A Tabela a seguir exibe os resultados obtidos no `experimento 1`, onde não foi
+incluída a medida TF-IDF.
+
+![tabela_exp1](https://github.com/user-attachments/assets/26f181c9-ceba-4279-8d0b-99d8899dbde0)
+
+No `experimento 1`, ao se utilizar `undersampling`, a `Floresta Aleatória` se destaca
+com uma acurácia de 0,6940 e um F1-Score de 0,7916, superando tanto a `Árvore de
+Decisão` quanto a `Regressão Logística`. A alta precisão, de 0,9366, indica que a `Regressão
+Logística` tem um baixo índice de falsos positivos.
+
+No cenário de `oversampling`, todos os classificadores apresentam uma melhoria na
+acurácia, recall e F1-Score. Novamente, a `Floresta Aleatória` lidera com uma acurácia de
+0,8020 e um F1-Score de 0,8833. A `Árvore de Decisão` também apresenta bons resultados,
+com uma acurácia de 0,7730, precisão de 0,8791 e um F1-Score de 0,8638. A `Regressão Logística`, embora tenha melhorado em relação ao cenário com `undersampling`, ficou atrás
+com uma acurácia de 0,6660 e um F1-Score de 0,7668.
+
+Em uma análise global do `experimento 1`, a `Floresta Aleatória` apresenta os maiores
+valores de acurácia, recall e F1-Score no cenário de `oversampling`. A `Árvore de Decisão`,
+que é um método mais simples, alcançou resultados próximos dos resultados obtidos pela
+`Floresta Aleatória` com o `oversampling`. Esse é um ponto relevante, dado que a `Árvore de
+Decisão` gera um modelo interpretável e de fácil entendimento. Já a `Regressão Logística`
+vence na precisão, no cenário de `undersampling`. O experimento ainda foi realizado em um
+cenário com balanceamento `SMOTE` (CHAWLA et al., 2002), técnica de balanceamento
+bastante tradicional que gera observações sintéticas da classe minoritária. Porém, esta
+técnica obteve resultados inferiores e foi desconsiderada deste trabalho.
