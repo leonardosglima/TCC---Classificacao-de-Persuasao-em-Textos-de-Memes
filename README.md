@@ -422,12 +422,12 @@ et al., 2018).
 
 ##### Árvores de Decisão
 
-As árvores de decisão são um método aprendizado não paramétrico usado para
-classificação e regressão. De acordo com a biblioteca Scikit-learn, o objetivo é criar um
+As `árvores de decisão` são um método aprendizado não paramétrico usado para
+classificação e regressão. De acordo com a biblioteca `Scikit-learn`, o objetivo é criar um
 modelo que preveja o valor de uma variável alvo, aprendendo regras de decisão simples
 inferidas a partir dos dados. Uma vantagem deste algoritmo é a facilidade na sua interpretação.
 
-As árvores de decisão são construídas através da análise de uma base de treino, no
+As `árvores de decisão` são construídas através da análise de uma base de treino, no
 qual a classificação de cada observação é conhecida, sendo utilizada posteriormente para
 classificar dados novos e desconhecidos (KINGSFORD; SALZBERG, 2008).
 
@@ -436,37 +436,37 @@ uma árvore real, que é composta por raiz e nós, sendo que os nós seriam as r
 e os locais onde elas se dividem. A árvore de decisão, então, é construída a partir dos nós
 e os ramos são representados pelos segmentos que conectam os nós. Ela começa da raiz e se move para baixo. O nó onde as ramificações se encerram é conhecido como folha.
 Cada nó representa uma certa característica enquanto os ramos representam uma gama
-de valores. A Figura a seguir apresenta um exemplo de uma Árvore de Decisão que
+de valores. A Figura a seguir apresenta um exemplo de uma `Árvore de Decisão` que
 classifica um cliente como possível comprador de carro importado com base em sua renda
 e idade (SILVA; GONÇALVES, 2021).
 
 ![Figura8 Exemplo_AD](https://github.com/user-attachments/assets/2f4adf59-69d1-4b7a-90c2-6a3755d7b851)
 
-Uma Árvore de Decisão é formada por um conjunto de regras de classificação,
+Uma `Árvore de Decisão` é formada por um conjunto de regras de classificação,
 uma vez que existe sempre um único caminho da raiz para cada folha, onde o caminho
 representa uma expressão lógica da regra utilizada para classificar um objeto (SILVA;
-GONÇALVES, 2021). Por exemplo, as regras da Figura 8 para classificar o cliente como
+GONÇALVES, 2021). Por exemplo, as regras da Figura anterior para classificar o cliente como
 possível comprador de carro importado são:
 
 * SE (renda = “alta”), ENTÃO (possível comprador = “sim”).
 * SE (renda = “média”) e (idade > 30), ENTÃO (possível comprador = “sim”).
 
-O algoritmo CART (BREIMAN et al., 1984) é um dos mais populares para a
+O algoritmo `CART` (BREIMAN et al., 1984) é um dos mais populares para a
 geração de árvore de decisão. Este algoritmo realiza a decisão de como dividir a árvore 
-através do Índice de Gini, que será utilizado para montar a árvore através de decisões
+através do `Índice de Gini`, que será utilizado para montar a árvore através de decisões
 binárias. Portanto, cada nó gerado terá duas ramificações.
 
-Como o algoritmo CART realiza apenas divisões binárias em cada nó, sempre serão
+Como o algoritmo `CART` realiza apenas divisões binárias em cada nó, sempre serão
 feitas divisões que resultem em duas ramificações (BREIMAN et al., 1984). Suponha que
 um atributo preditivo “tempo” tenha as seguintes classificações possíveis: sol, chuva e
-nublado. Neste caso, o algoritmo CART faria partições da seguinte forma: {sol, chuva},
+nublado. Neste caso, o algoritmo `CART` faria partições da seguinte forma: {sol, chuva},
 {sol, nublado}, {chuva, nublado}, {sol}, {chuva} e {nublado}. Então, seria calculado o
-Índice de Gini para cada combinação possível entre as repartições. Dessa forma, é feita a
+`Índice de Gini` para cada combinação possível entre as repartições. Dessa forma, é feita a
 soma ponderada de cada partição.
 
 #### Floresta Aleatória (Random Forest)
 
-O método Floresta Aleatória é uma combinação de árvores de decisão em que
+O método `Floresta Aleatória` é uma combinação de árvores de decisão em que
 cada árvore depende de valores de um vetor aleatório amostrado, em que os vetores são
 independentes e identicamente distribuídos, sendo que o k-ésimo vetor gerado governa a
 k-ésima árvore de decisão (BREIMAN, 2001).
@@ -485,9 +485,9 @@ o valor de 𝑚 é constante.
 
 #### Regressão Logística
 
-A Regressão Logística é um classificador probabilístico, sendo uma das ferramentas
+A `Regressão Logística` é um classificador probabilístico, sendo uma das ferramentas
 analíticas mais importantes das ciências sociais e naturais (JURAFSKY; MARTIN,
-2024a). No Processamento de Linguagem Natural, ela é o algoritmo de aprendizado de máquina
+2024a). No `Processamento de Linguagem Natural`, ela é o algoritmo de aprendizado de máquina
 supervisionado básico para classificação e também tem uma relação muito próxima
 com redes neurais (JURAFSKY; MARTIN, 2024a).
 
@@ -500,7 +500,7 @@ Neste trabalho, foi definido que o valor 1 significa texto com persuasão e 0 si
 sem persuasão. Queremos saber a probabilidade condicional 𝑝(𝑦 = 1|𝑥). Caso essa seja
 maior que 0,5, então teremos a classificação 𝑦 = 1 e, caso contrário, 𝑦 = 0.
 
-Ainda segundo Jurafsky e Martin (2024), a regressão logística resolve essa tarefa
+Ainda segundo Jurafsky e Martin (2024), a `regressão logística` resolve essa tarefa
 aprendendo um vetor de pesos (coeficientes) e um termo de viés (intercepto). Cada peso
 𝑤𝑖 é um número real associado ao atributo preditivo 𝑋𝑖. Então, para tomar uma decisão,
 primeiro multiplica-se cada 𝑋𝑖 pelo peso 𝑤𝑖, soma-se o resultado e adiciona-se o termo de
@@ -511,8 +511,22 @@ O valor 𝑧 também pode ser representado pelo produto escalar dos vetores w e
 X. O produto escalar de dois vetores a e b pode ser escrito como a · b e será a soma
 dos produtos dos elementos correspondentes de cada vetor.
 
-Para representar 𝑧 como uma probabilidade, a função sigmoide (também chamada
+Para representar 𝑧 como uma probabilidade, a função `sigmoide` (também chamada
 de função logística), apresentada na Figura a seguir, é introduzida e apresentada graficamente, de forma a termos valores entre 0 e 1. Como cada um dos pesos possuem
 valores reais, o valor de 𝑧 na pode variar de −∞ até +∞.
 
 ![Figura9 funcao sigmoide](https://github.com/user-attachments/assets/8a2e4316-f28e-4251-856f-c85315c43f07)
+
+O processo de treinamento da regressão logística envolve uma função objetiva para
+aprendizado, que visa minimizar os erros e otimizar o desempenho do modelo. A função
+objetiva utilizada é a perda de `entropia cruzada`. A função 𝐿(^𝑦, 𝑦) mede o quão próximo
+^𝑦, a classe estimada, está de 𝑦, a classe verdadeira (JURAFSKY; MARTIN, 2024a).
+A otimização da função de perda ocorre através do `gradiente descendente`. Seu objetivo
+é encontrar o conjunto de pesos que irá minimizar a função de perda (JURAFSKY;
+MARTIN, 2024a). O `gradiente descendente` é um método que encontra o mínimo de uma função
+ao descobrir, no espaço de parâmetros 𝜃, a direção em que a inclinação da função está
+aumentando de forma mais acentuada. Então, ele se move na direção oposta (JURAFSKY;
+MARTIN, 2024a).
+
+### Métricas de Avaliação
+
