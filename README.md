@@ -530,3 +530,45 @@ MARTIN, 2024a).
 
 ### Métricas de Avaliação
 
+Uma vez que o modelo é treinado, o próximo passo consiste em obter as suas
+predições em uma base de teste. A base de teste é composta por objetos rotulados, mas
+que não foram utilizados na construção do modelo. A partir das predições que o modelo
+faz na base de teste, tona-se possível construir uma matriz de confusão. A avaliação
+dos classificadores se dará pela acurácia, precisão, recall e F1-Score, métricas de avaliação
+calculadas a partir da matriz de confusão (JURAFSKY; MARTIN, 2024c). A estrutura da
+matriz de confusão utilizada neste trabalho é apresentada na Tabela a seguir, onde cada elemento
+da matriz corresponde à frequência absoluta de classificações. A matriz de confusão possui
+as seguintes classificações:
+
+* `VN`: Verdadeiro Negativo (classificou que não era persuasivo e acertou).
+* `FP`: Falso Positivo (classificou que era persuasivo e errou).
+* `FN`: Falso Negativo (classificou que não era persuasivo e errou).
+* `VP`: Verdadeiro Positivo (classificou que era persuasivo e acertou).
+
+![estrutura_matriz_confusao](https://github.com/user-attachments/assets/2d728855-d3a2-4c76-b364-0c27e69ba182)
+
+A `acurácia` mede a proporção de predições corretas feita pelo modelo, ou seja,
+a quantidade de exemplos que foram corretamente classificados em relação ao total de
+exemplos.
+
+![formula_acuracia](https://github.com/user-attachments/assets/56c2ae13-4636-4f41-8c3c-b1805ad27711)
+
+A `precisão` indica a proporção de exemplos positivos classificados corretamente
+pelo modelo em relação a todos os exemplos que o modelo classificou como positivos.
+
+![formula_precisao](https://github.com/user-attachments/assets/5402264d-4453-4b44-8cc7-e51df7bbf385)
+
+O `recall` mede a proporção de exemplos positivos que foram corretamente identificados
+pelo modelo em relação a todos os exemplos que são realmente positivos.
+
+![formula_recall](https://github.com/user-attachments/assets/5f7f6eea-b743-43bb-9d76-daac3c0e64c9)
+
+Por fim, a medida `F1-Score` é média harmônica da precisão e do recall, fornecendo
+uma métrica que balanceia precisão e recall.
+
+![formula_f1score](https://github.com/user-attachments/assets/fbeee373-dace-4f5c-a202-2757507df017)
+
+
+### Resultados
+
+
