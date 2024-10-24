@@ -308,3 +308,118 @@ processo de extração de atributos numéricos através da engenharia de caracte
 `As Olimpíadas chegaram! Os atletas acabam de chegar em Paris para a maior
 competição esportiva do mundo. O Time Brasil está preparado? De acordo com os
 atletas, eles estão!`
+
+Considerando as variáveis apresentadas previamente (desconsiderando o TF-IDF),
+temos os seguintes atributos numéricos extraídos:
+
+* Número total de frases: 4.
+* Média de caracteres por frase: 42,25.
+* Variância de caracteres por frase: 499,69.
+* Total de caracteres: 172.
+* Média de caracteres por palavra: 4,79.
+* Variância de caracteres por palavra: 7,06.
+* Frequência de pontuação: 5.
+* Frequência de letras maiúsculas: 8.
+* Proporção de tokens sobre palavras lematizadas: 0,74.
+
+Analisando o atributo `Proporção de tokens sobre palavras lematizadas`, de mais complexo entendimento que os outros, podemos
+detalhar seu processo de cálculo. Os `tokens` gerados para o texto formam o seguinte vetor
+de palavras e pontuações:
+
+`["As", "Olimpíadas", "chegaram", "!", "Os", "atletas", "acabam", "de", "chegar", "em",
+"Paris", "para", "a", "maior", "competição", "esportiva", "do", "mundo", ".", "O", "Time",
+"Brasil", "está", "preparado", "?", "De", "acordo", "com", "os", "atletas", ",", "eles",
+"estão", "!"]`
+
+Este vetor tem o total de 34 elementos. O próximo passo consiste em gerar um
+vetor com as palavras lematizadas, que resulta no seguinte vetor de palavras e pontuações:
+
+`[’!’, ’,’, ’.’, ’?’, ’Brasil’, ’Olimpíadas’, ’Paris’, ’Time’, ’acabar’, ’acordo’, ’atleta’,
+’chegar’, ’com’, ’competição’, ’de’, ’de o’, ’ele’, ’em’, ’esportivo’, ’estar’, ’grande’,
+’mundo’, ’o’, ’para’, ’preparado’]`
+
+No vetor lematizado há um total de 25 elementos. Neste caso, não há repetições.
+Desta forma, o atributo é calculado por 25/34, resultado no valor de 0,74.
+
+#### TF-IDF
+
+Uma das formas a ser utilizada para a extração de atributos a partir do conteúdo
+dos textos será a `Matriz Documento-Termo (Document-Term Matrix - DTM)` com pesos
+`TF-IDF`. Para explicar o `TF-IDF`, será apresentado um exemplo de como essa medida
+é usada no contexto de busca de documentos na Internet. Para ordenar documentos em
+resposta à uma consulta realizada, há duas premissas que podem ser utilizadas:
+
+* Documentos que contém mais vezes os termos da consulta terão mais chances de
+serem relacionados a ela e, então, serem relevantes.
+* Os termos mais raros na coleção de documentos são úteis para a diferenciação de
+conteúdo nos documentos (MOREIRA, 2023).
+
+Por exemplo, se uma pessoa decide pesquisar sobre artigos de notícias do cenário
+político nos EUA em um corpus de documentos (um site de notícias, por exemplo), alguns
+termos serão mais relevantes que outros. Palavras como “Biden” ou “Casa Branca” serão
+termos úteis para a pesquisa, enquanto termos como “basquete” ou “previsão do tempo”
+já não terão tanta utilidade.
+
+O `TF-IDF` e a `DTM` são usados não apenas para recuperação da informação (busca
+de documentos), mas também em problemas de classificação. Na `DTM`, cada linha representa
+um documento em uma coleção de documentos e cada coluna representa uma palavra
+ou grupo de palavras, onde cada célula da matriz representa o peso do termo no documento
+(JURAFSKY; MARTIN, 2024e). Para atribuir pesos aos termos em relação aos documentos,
+é muito comum utilizar a medida `TF-IDF`, onde `TF` significa “term-frequency”
+(frequência do termo) e `IDF` significa “inverse document-frequency” (frequência inversa do
+termo) (MOREIRA, 2023). A medida `TF-IDF` é, então, o produto de `TF` e `IDF`. 
+
+O cálculo dos pesos `TF-IDF` foi realizado utilizando a biblioteca `Scikit-learn`, no
+`Python`. A biblioteca calcula o termo `TF(𝑡,𝑑)` como sendo a frequência absoluta em que o
+termo 𝑡 aparece no documento 𝑑. O componente `IDF` tem o objetivo de dar um peso maior aos termos mais raros,
+pois eles são úteis para discriminar o conteúdo dos documentos (MOREIRA, 2023). Portanto,
+quanto mais raro o termo for no corpus, maior será o valor `IDF`.
+
+Neste trabalho, cada documento corresponde a um texto de meme, e o corpus é
+composto pelo conjunto de todos os textos de memes presentes na base de dados. Nos
+experimentos, os termos serão representados de duas formas distintas:
+
+* Os `50 unigramas` mais frequentes.
+* Os `50 bigramas` mais frequentes.
+
+Os `unigramas` e `bigramas` são dois exemplos de `n-gramas`. O `n-grama` é uma sequência
+de n palavras (JURAFSKY; MARTIN, 2024b). Portanto, o `unigrama` é uma sequência
+de uma palavra e o `bigrama` é uma sequência de duas palavras.
+
+#### Balanceamento da Base
+
+Bases desbalanceadas podem levar o modelo a favorecer previsões na classe majoritária (CRUZ; ROCHA; CARDOSO, 2019). Como a base de treino contém 78% de suas observações
+classificadas como propaganda, tem-se um caso em que os modelos podem favorecer a
+previsão dos textos da base de teste dessa forma. Portanto, com o objetivo de retirar
+essa tendência de classificação, serão aplicadas duas formas distintas de balanceamento:
+`undersampling` e `oversampling`.
+
+Ao se utilizar dados do mundo real, classes desbalanceadas podem ser esperadas.
+Se o grau de desbalanceamento dos dados para a classe majoritária for algo extremo então
+o classificador pode produzir uma alta acurácia na previsão, dado que o modelo prevê a
+maioria das instâncias como pertencentes à classe majoritária (LEEVY et al., 2018).
+
+O método `undersampling` consiste na redução da quantidade de observações da
+classe majoritária. A forma mais popular para a aplicação de `undersampling`, que também
+será utilizada neste trabalho, é o `undersampling` aleatório. O método consiste em remover
+observações da classe majoritária, aleatoriamente, até que a base de dados alcance o
+balanceamento entre as classes.
+
+Por outro lado, o método `oversampling` consiste na geração de novas amostras
+de observações pertencentes à classe minoritária. A forma mais comum de utilização
+do método, que também será utilizada nesse trabalho, é através da geração de novas
+observações a partir de uma amostragem com reposição da classe minoritária. Desta
+forma, observações aleatórias da classe minoritária são replicadas na base até que se
+tenha o balanceamento entre as classes.
+
+Os dois métodos de balanceamento serão aplicados na base de treino, de forma a
+balancear as classes para tentar obter um melhor desempenho dos modelos de classificação.
+Resultados empíricos de trabalhos relevantes apontam que o método de `oversampling`
+aleatório alcança melhores resultados do que o método de `undersampling` aleatório (LEEVY
+et al., 2018).
+
+#### Técnicas de Classificação
+
+##### Árvores de Decisão
+
+
