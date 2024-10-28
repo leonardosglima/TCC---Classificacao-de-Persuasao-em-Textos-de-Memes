@@ -1,7 +1,9 @@
 # Classificação de Persuasão em Textos de Memes: Uma Abordagem Baseada em Engenharia de Características
 
-## Monografia apresentada à Escola Nacional de Ciências Estatísticas do Instituto Brasileiro de Geografia e Estatística, como requisito parcial à obtenção do título de Bacharel em Estatística, sob orientação do Prof. Eduardo Corrêa Gonçalves.
+## Monografia apresentada à Escola Nacional de Ciências Estatísticas do Instituto Brasileiro de Geografia e Estatística, como requisito parcial à obtenção do título de Bacharel em Estatística.
 
+### Aluno: Leonardo Souza Gomes de Lima
+### Orientador: Prof. Eduardo Corrêa Gonçalves
 O conteúdo apresentado neste `README.md` trata-se de um resumo do trabalho. O trabalho completo pode ser acessado neste mesmo repositório.
 
 ### Resumo
@@ -19,10 +21,13 @@ que representa ambiente mais desafiador. Este trabalho aborda a classificação 
 em textos de memes, utilizando algoritmos de aprendizado de máquina. A abordagem
 é baseada na engenharia de características, uma estratégia usada para transformar texto
 (dado não estruturado) em um formato adequado para os algoritmos de classificação.
-Serão utilizados modelos de árvore de decisão, floresta aleatória e regressão logística.
+Serão utilizados modelos de `Árvore de Decisão`, `Floresta Aleatória` e `Regressão Logística`.
 
-Palavras-chaves: `Persuasão.` `Propaganda.` `Meme.` `Classificação.` `Engenharia de Características.`
-`Processamento de Linguagem Natural.` `Aprendizado de Máquina.`
+Palavras-chaves: `Persuasão` `Propaganda` `Meme` `Classificação` `Engenharia de Características`
+`Processamento de Linguagem Natural` `Aprendizado de Máquina`
+
+Key-words: `Persuasion` `Propaganda` `Meme` `Classification` `Feature Engineering` `Natural
+Language Processing` `Machine Learning`
 
 ### Introdução
 
@@ -80,12 +85,14 @@ Diferentes técnicas de persuasão podem ser aplicadas em memes, aproveitando su
 capacidade de transmitir mensagens de forma rápida e eficaz. O uso de falácias lógicas,
 com o uso de humor e ironia, pode tornar uma mensagem mais cativante e persuasiva, ao
 mesmo tempo em que tenta suavizar possíveis resistências do público-alvo. Por exemplo,
-a Figura 1 ilustra um meme, em inglês, que retrata a congressista americana Ilhan Omar
+a Figura a seguir ilustra um meme, em inglês, que retrata a congressista americana Ilhan Omar
 junto ao ex-presidente dos Estados Unidos, Donald Trump. Neste meme, a associação é
 feita entre a expressão de desgosto em relação ao ex-presidente e o terrorismo.
 
-Este trabalho pretende utilizar técnicas de Processamento de Linguagem Natural
-(PLN) para criar um sistema capaz de classificar um meme como normal ou persuasivo
+<img src="https://github.com/user-attachments/assets/d14d8118-ddfb-4940-8835-e0bb83ec86f9" alt="Figura 1" width="400"/>
+
+Este trabalho pretende utilizar técnicas de `Processamento de Linguagem Natural
+(PLN)` para criar um sistema capaz de classificar um meme como normal ou persuasivo
 unicamente em função de seu texto. O Processamento de Linguagem Natural é um
 campo de pesquisa que tem como objetivo investigar e propor métodos e sistemas de
 processamento computacional da linguagem humana (CASELI; NUNES, 2024). Ele funciona
@@ -96,8 +103,6 @@ abordagem baseada em engenharia de características (feature engineering), que c
 na transformação dos textos dos memes (dados brutos) em vetores numéricos que são
 exigidos pelos algoritmos de classificação (NARGESIAN et al., 2017; ZHENG; CASARI,
 2018).
-
-<img src="https://github.com/user-attachments/assets/d14d8118-ddfb-4940-8835-e0bb83ec86f9" alt="Figura 1" width="400"/>
 
 #### Justificativa
 
@@ -112,19 +117,19 @@ o vasto alcance e a rápida disseminação que os memes podem atingir.
 
 #### Objetivos
 
-O objetivo deste trabalho é criar um sistema de classificação de textos curtos,
+O objetivo deste trabalho é criar um `sistema de classificação` de textos curtos,
 especificamente aplicado à análise de textos de memes, de forma a classificar se o conteúdo
 do texto é persuasivo ou não. Ao desenvolver um sistema capaz de identificar de forma
 eficaz a presença de propaganda em memes, este trabalho poderá fornecer um material
 para pesquisas futuras sobre o tema. A classificação em textos de memes se encontra
 em um contexto desafiador, visto que os textos tendem a ser muito curtos e informais,
 podendo empregar linguagem coloquial e referências culturais. Com o objetivo de tentar
-a compreensão sobre o tema, este trabalho terá como foco o uso de técnicas de engenharia
-de características e de algoritmos capazes de gerar modelos interpretáveis (FREITAS,
+a compreensão sobre o tema, este trabalho terá como foco o uso de técnicas de `engenharia
+de características` e de algoritmos capazes de gerar modelos interpretáveis (FREITAS,
 2014), isto é, modelos que possuem a habilidade de “explicar” as suas classificações para
 os usuários. Mais especificamente, os algoritmos de classificação utilizados nesse trabalho
-são Árvore de Decisão CART (BREIMAN et al., 1984), Regressão Logística (JURAFSKY;
-MARTIN, 2024a) e Floresta Aleatória (Random Forest)1 (BREIMAN, 2001).
+são `Árvore de Decisão CART` (BREIMAN et al., 1984), `Regressão Logística` (JURAFSKY;
+MARTIN, 2024a) e `Floresta Aleatória` (Random Forest)1 (BREIMAN, 2001).
 
 ### Base de Dados
 
@@ -165,7 +170,7 @@ de forma isolada ou em conjunto com outras de forma simultânea. As técnicas po
 Cada observação de cada uma das três bases está rotulada com as técnicas de
 persuasão que estão sendo utilizadas no texto do meme, caso
 o texto tenha conteúdo persuasivo. A base de treino possui todas as 20 técnicas em seus
-textos. A Figura 2 exibe a frequência de cada técnica na base de treino. No total, as
+textos. A Figura a seguir exibe a frequência de cada técnica na base de treino. No total, as
 técnicas foram empregadas 11.290 vezes.
 
 ![Figura 2 v2](https://github.com/user-attachments/assets/f134b354-b916-43ab-bf97-2f9bad24db99)
@@ -182,7 +187,7 @@ Cada texto pode ser rotulado com diferentes técnicas de persuasão simultaneame
 Dentro do conjunto de observações da base de treinamento, 3.274 foram identificadas
 com duas ou mais técnicas, enquanto 2.462 foram rotuladas com apenas uma
 técnica. Além disso, há 1.263 textos na base que não apresentam nenhuma técnica de persuasão
-em seu conteúdo. A Figura 4 a seguir ilustra a distribuição do número de textos
+em seu conteúdo. A Figura a seguir ilustra a distribuição do número de textos
 em relação ao total de técnicas aplicadas.
 
 ![Figura4 (Gráfico 2)](https://github.com/user-attachments/assets/c8ca6ddf-249a-48a8-bb85-a041b153ae70)
@@ -192,7 +197,7 @@ a base possui uma alta quantidade de observações e, por consequência, uma alt
 de palavras, uma nuvem de palavras pode ilustrar a importância e frequência das
 palavras na base. Para isso, foram desconsideradas as stopwords, que são palavras que não
 vão trazer informação de fato sobre o conteúdo presente, tais como artigos e pronomes
-(MOREIRA, 2023). A Figura 5 a seguir exibe a nuvem de palavras de toda a base.
+(MOREIRA, 2023). A Figura a seguir exibe a nuvem de palavras de toda a base.
 
 ![Figura5 nuvem de palavras - base total](https://github.com/user-attachments/assets/ec0e0150-fa0a-465f-b540-ed9c702c9d2d)
 
@@ -216,7 +221,7 @@ de palavras para os memes classificados como não-propaganda. Palavras como “T
 “President”, “Ukraine”, “Russia” e “Biden” se destacam. A maior diferença aparente em
 relação à base total é o crescimento da palavra “Ukraine”, se referindo ao país da Ucrânia.
 
-De forma a expandir a análise, a Figura 7 exibe a nuvem de palavras para os
+De forma a expandir a análise, a Figura a seguir exibe a nuvem de palavras para os
 memes rotulados como propaganda, ou seja, com conteúdo persuasivo.
 
 Novamente vemos uma forte presença de conteúdo político, com palavras como
