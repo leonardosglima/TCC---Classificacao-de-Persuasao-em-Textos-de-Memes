@@ -620,3 +620,279 @@ vence na precisão, no cenário de `undersampling`. O experimento ainda foi real
 cenário com balanceamento `SMOTE` (CHAWLA et al., 2002), técnica de balanceamento
 bastante tradicional que gera observações sintéticas da classe minoritária. Porém, esta
 técnica obteve resultados inferiores e foi desconsiderada deste trabalho.
+
+A Tabela a seguir apresenta os resultados do `experimento 2`, incluindo a medida
+TF-IDF com os 50 bigramas mais frequentes. Neste experimento, no cenário com undersampling, a `Floresta Aleatória` obtém
+a maior acurácia, recall e F1-Score. Contudo, com exceção da `Regressão Logística`, os
+desempenhos dos modelos foram inferiores ao cenário com `oversampling`. A `Regressão
+Logística` vence na precisão, com um valor de 0,9427, apenas um pouco maior do que o
+obtido no `experimento 1`.
+
+Quando o `oversampling` é aplicado, a `Árvore de Decisão` e a `Floresta Aleatória` apresentam fortes aumentos de acurácia e F1-Score. Neste cenário, a `Árvore de Decisão`
+alcança um valor de 0,7870 na acurácia e 0,8719 no F1-Score. Já a `Floresta Aleatória`,
+0,7970 e 0,8810, respectivamente, o que a coloca como o classificador com os maiores
+valores nessas duas métricas. A `Regressão Logística` obtém valores levemente menores na
+acurácia e F1-Score, com 0,6630 e 0,7622, respectivamente. Na precisão, ela consegue uma
+leve melhora, atingindo o valor de 0,9424.
+
+![tabela_exp2](https://github.com/user-attachments/assets/320cf52c-b35b-4378-95d2-e7864c316e7b)
+
+Analisando todo o `experimento 2` conjuntamente, destacam-se os resultados obtidos
+pela `Floresta Aleatória` no cenário com `oversampling`. Ela obteve uma acurácia de
+0,7980, um recall de 0,8863 e um F1-Score de 0,8810, sendo esses os maiores valores dessas
+métricas no experimento. A `Regressão Logística` se destaca com a maior precisão de todas,
+com um valor de 0,9427, no cenário com `undersampling`.
+
+A Tabela a seguir apresenta os resultados do `experimento 3`, incluindo a medida
+TF-IDF com os 50 unigramas mais frequentes. No `experimento 3`, ao utilizar do `undersampling`, a acurácia, recall e F1-Score de
+todos os modelos são inferiores em relação ao cenário de `oversampling` A precisão dos
+modelos, contudo, foi superior. A `Regressão Logística`, novamente, apresenta destaque
+com sua alta precisão de 0,9472.
+
+![tabela_exp3](https://github.com/user-attachments/assets/638174f2-a937-430c-b07d-248ba5fc3afc)
+
+Com a aplicação do balanceamento por `oversampling`, todos os classificadores apresentam
+melhoria na acurácia, recall e F1-Score. Novamente, a `Floresta Aleatória` demonstra um desempenho superior em relação aos outros classificadores, atingindo a maior
+acurácia, com 0,8130, e o maior F1-Score, com 0,8894. Já a `Árvore de Decisão`, dessa vez,
+ultrapassa a `Regressão Logística` e atinge o segundo maior F1-Score entre os classificadores,
+com um total de 0,8680 contra 0,7700 da `Regressão Logística`. Porém, novamente,
+a `Regressão Logística` se destaca com sua alta precisão, obtendo um valor de 0,9433,
+levemente inferior ao que obteve no cenário com `undersampling`.
+
+Analisando o `experimento 3` como um todo, o maior destaque vai para a `Floresta
+Aleatória` com balanceamento por `oversampling`. Ela apresenta os maiores valores de acurácia,
+recall e F1-Score para todo o `experimento 3`, se destacando com o valor de 0,8894
+na medida F1-Score.
+
+Observando todos os 3 experimentos, podemos ver resultados muitos próximos entre
+eles, com a `Floresta Aleatória` apresentando os melhores resultados no cenário com
+`oversampling` do `experimento 3`. Ela alcançou uma acurácia de 0,8130, um recall de 0,8910
+e um F1-Score de 0,8894. Foram os maiores valores para essas métricas entre todos os
+classificadores em todos os experimentos realizados. Porém, ao levarmos em consideração
+a proximidade dos resultados, é interessante considerar o `experimento 1` como o melhor
+entre eles, pois trata-se de um cenário em que os atributos gerados pela engenharia de
+características são de maior simplicidade e melhor entendimento. Além disso, embora a
+`Floresta Aleatória` apresente o melhor desempenho, também é válido notar que os resultados
+com `Árvore de Decisão` foram bastante próximos. A `Árvore de Decisão` é um modelo interpretável e é de fácil entendimento o processo feito por ela para classificar uma nova
+observação. Então, por uma questão de maior poder interpretativo, seus resultados neste
+trabalho possuem um destaque em relação aos outros. Já a `Regressão Logística` obteve
+a maior precisão de todos os experimentos no cenário com `undersampling`, também no
+`experimento 3`, alcançando um valor de 0,9472.
+
+#### Comparação com Modelos Gerados sem Balanceamento de Classes
+
+Os resultados apresentados na seção anterior, onde foram aplicadas técnicas de
+balanceamento de classes, evidenciam uma tentativa de melhoria dos resultados originais,
+sem balanceamento. Uma base desbalanceada pode levar o modelo a favorecer previsões na classe
+majoritária (CRUZ; ROCHA; CARDOSO, 2019), sendo esse o caso da base de treino
+utilizada neste trabalho.
+
+O `experimento 1`, com os atributos gerados pela engenharia de características e
+sem considerar a medida TF-IDF, alcança resultados próximos aos outros experimentos.
+Porém, é o experimento de mais fácil entendimento, pois são atributos facilmente interpretáveis
+que foram extraídos do texto. Portanto, esse experimento será utilizado como base
+de comparação ao cenário sem balanceamento. A Tabela a seguir exibe os resultados do
+`experimento 1` sem nenhum balanceamento de base.
+
+![tab_exp1_desbalanceado](https://github.com/user-attachments/assets/3cced60c-a8ee-4487-a59a-b3221de92175)
+
+Ao analisar os resultados e comparar com os cenários onde `undersampling` e `oversampling`
+foram aplicados, pode se ter a conclusão de que o cenário sem balanceamento
+algum é melhor e mais promissor, dado que os valores de acurácia, recall e F1-Score são
+superiores. Contudo, pode se tratar de uma interpretação equivocada. Neste cenário, é importante
+analisar não só os valores das métricas, mas o contexto em que esse experimento
+ocorreu.
+
+Ao realizar o experimento em uma base que não passou pelo processo de `undersampling`
+ou `oversampling`, há um forte desbalanceamento. A base de treino possui um
+total de 78% das observações com textos de memes classificados como persuasivos, contra
+22% de textos não persuasivos. Conforme apontado por Cruz, Rocha e Cardoso (2019),
+isso tende a favorecer previsões na classe majoritária, nesse caso, criando um viés para
+classificar novos textos de memes como persuasivos.
+
+Assim como a base de treino, a base de teste também possui a maior parte das
+observações com textos persuasivos, representando 84% das observações. Essa alta proporção,
+aliada com um viés dos modelos para classificar textos como persuasivos, tendem
+a levar a um cenário em que os modelos terão um alto índice de acertos. Porém, dado o
+contexto, isso não representa um bom resultado.
+
+De forma a ilustrar esta análise, a Tabela a seguir apresenta a matriz de confusão
+gerada para a `Regressão Logística`, modelo com o maior F1-Score no cenário sem
+balanceamento.
+
+![matriz_confusao_sem_balanceamento](https://github.com/user-attachments/assets/9b9eff9a-4750-4b89-8adb-1da321cfb264)
+
+Na matriz de confusão, as linhas representam a classe verdadeira e as colunas
+representam a classe predita. Como se pode observar, quase todas as observações da base
+de teste foram preditas como texto persuasivo. Com 84% da base sendo de fato texto
+persuasivo, a quantidade de acertos é bastante alta. Porém, isso não indica um bom
+modelo, mas apenas evidencia o viés gerado pela base não balanceada. A Tabela 9 a
+seguir evidencia a forte diferença na matriz de confusão para a `Regressão Logística` no
+cenário com balanceamento por `oversampling`. Foi escolhido o cenário com `oversampling`
+para a comparação por este ter apresentado os melhores resultados.
+
+![matriz_confusao_RL_oversampling](https://github.com/user-attachments/assets/28d0742a-6585-4b73-816e-341c58c86657)
+
+Portanto, embora apresente métricas elevadas, conclui-se que não se trata de uma
+boa classificação e que o balanceamento da base é uma importante estratégia para se ter
+resultados mais promissores e confiáveis.
+
+#### Análise da Importância dos Atributos com Árvore de Decisão
+
+Os modelos treinados com `Árvore de Decisão` obtiveram um desempenho preditivo
+muito próximo da `Floresta Aleatória`. Diferentemente da `Floresta Aleatória`, a `Árvore de
+Decisão` gera um modelo diretamente interpretável, em uma estrutura gráfica, de forma é
+apresentado de forma clara o que levou o modelo a fazer uma determinada classificação.
+Esta seção tem por objetivo analisar a importância dos atributos da `Árvore de Decisão`
+do `experimento 1`, no cenário com `oversampling`. Este experimento foi escolhido pela
+maior simplicidade nos atributos utilizados e por seu bom desempenho. O cenário com
+`oversampling` foi escolhido por apresentar os melhores resultados do experimento.
+
+A `Árvore de Decisão` gerada possui diferentes regras, onde cada regra leva a classificação
+do texto do meme como persuasivo ou não persuasivo. Uma elevada quantidade
+de regras foi gerada, onde 1.263 regras possuem 100% de confiança, ou sejam, classificam
+perfeitamente um texto como persuasivo ou não persuasivo. Dado o elevado número de
+regras definidas, serão apresentadas as duas regras com maior cobertura para os textos
+persuasivos e as duas regras com maior cobertura para os textos não persuasivos, todas
+com 100% de confiança.
+
+Como a análise está sendo feita para o cenário com `oversampling`, é importante
+lembrar que estamos lidando com uma base de treino que contém mais observações do
+que teria sem a aplicação dessa técnica de balanceamento. Nesse contexto, a base de
+treino possui um total de 11.472 textos de memes, devido à replicação de textos da classe
+minoritária.
+
+Primeiramente, apresentam-se as regras com maior cobertura para a classificação
+de textos como persuasivos. A primeira regra cobre em 525 textos persuasivos, enquanto
+a segunda, cobre 187 textos persuasivos, todos provenientes da base de treino.
+
+* SE (total de caracteres > 125,5) e (4,005 < média de caracteres por palavra
+<= 5,544) e (média de caracteres por frase < 27,829) e (1,349 < variância de
+caracteres por palavra <= 7,933) e (3,5 < frequência de pontuação <= 9,5) e
+(frequência de letras maiúsculas > 6,5) e (proporção de tokens sobre palavras
+lematizadas > 0,489), ENTÃO (Texto = “Persuasivo”).
+* SE (total de caracteres > 325,5) e (média de caracteres por palavra > 4,005)
+e (média de caracteres por frase > 27,829) e (variância de caracteres por frase
+<= 51.948,834) e (frequência de pontuação > 9,5) e (proporção de tokens sobre
+palavras lematizadas > 0,489), ENTÃO: (Texto = “Persuasivo”).
+
+Por fim, apresentam-se as regras com maior cobertura para a classificação de textos
+como não persuasivos. A primeira regra foi baseada em 78 textos não persuasivos,
+enquanto a segunda, cobre 70 textos não persuasivos, todos provenientes da base de
+treino.
+
+* SE (total de caracteres <= 32,5) e (4,9 < média de caracteres por palavra <=
+5,708) e (variância de caracteres por palavra <= 10,32) e (frequência de pontuação
+<= 4,5) e (1,5 < frequência de letras maiúsculas <= 8,5) e (frequência de
+pontuação > 0,5) e (variância de caracteres por frase <= 44,5), ENTÃO (Texto
+= “Não persuasivo”).
+* SE (total de caracteres <= 32,5) e (frequência de letras maiúsculas <= 0,5) e
+(frequência de pontuação <= 4,5) e (variância de caracteres por frase <= 44,5),
+ENTÃO (Texto = “Não persuasivo”).
+
+Essas regras cobrem um total de 860 textos de memes, o que representa um total de
+aproximadamente 7,5% da base de treino balanceada por `oversampling`. Podemos ver pelas
+regras a diferença entre textos persuasivos e não persuasivos, por exemplo, no atributo
+“total de caracteres”. As regras exibidas nos mostram que um elevado valor de caracteres
+tende a levar o texto a ser persuasivo.
+
+Para uma análise comparativa, as tabelas a seguir apresentam as principais estatísticas
+dos atributos para os textos persuasivos e para os textos não
+persuasivos, respectivamente.
+
+* Textos persuasivos:
+  
+![estatisticas_memes_persuasivos](https://github.com/user-attachments/assets/c96405f9-b1cb-4fe3-b2d1-d36feb5145ed)
+
+* Textos não persuasivos:
+  
+![estatisticas_memes_naopersuasivos](https://github.com/user-attachments/assets/073ecc26-3d07-429a-8898-cd0770451d7e)
+
+Alguns atributos possuem diferenças mais significativas entre os textos persuasivos
+e não persuasivos. Conforme as regras apresentadas da `Árvore de Decisão` sugeriram, textos
+persuasivos possuem, em média, 126% mais caracteres do que textos não persuasivos.
+Essa diferença também pode ser vista na quantidade máxima de caracteres, onde os textos
+persuasivos representam um aumento de 195% em relação aos textos não persuasivos. O
+desvio padrão desse atributo em textos não persuasivos, menor que a metade para textos
+persuasivos, indica uma dispersão menor dessa variável nesse contexto, fortalecendo a regra
+de que quanto menor for o total de caracteres no texto, mais propenso ele é a ser não
+persuasivo.
+
+O atributo “frequência de letras maiúsculas” também apresenta diferenças mais
+notáveis entre as duas classificações. Textos persuasivos possuem, em média, quase o
+dobro da quantidade de letras maiúsculas de textos não persuasivos. O valor máximo
+desse atributo, por exemplo, aumenta em 220% nos textos persuasivos. Essas estatísticas também reforçam as regras da `Árvore de Decisão`, que indicam que um número maior de
+letras maiúsculas no texto os aproxime da classificação como persuasivo.
+
+### Conclusão
+
+Este trabalho abordou a classificação de persuasão em textos de memes, utilizando
+uma abordagem baseada em engenharia de características. Para isso, utilizou-se dos modelos
+de `Árvore de Decisão`, `Floresta Aleatória` e `Regressão Logística`. A exploração do
+problema de classificação de persuasão em textos de memes é algo novo, levando este
+trabalho a realizar este estudo em um contexto mais desafiador do que a classificação de
+persuasão em outros tipos de texto, como artigos de notícias, por exemplo.
+
+A engenharia de características foi empregada para extrair atributos numéricos
+dos textos presentes nos memes, visando sua aplicação em algoritmos de classificação. Os
+atributos utilizados foram baseados na metodologia descrita por Cruz, Rocha e Cardoso
+(2019), que realizaram a classificação de persuasão em textos de artigos. No contexto dos
+textos de memes, estamos lidando com conteúdos mais curtos e informais.
+
+Os experimentos realizados apontaram que os resultados alcançados pela `Árvore
+de Decisão` e `Floresta Aleatória` foram, em geral, superiores do que a `Regressão Logística`.
+A `Regressão Logística` obteve um desempenho melhor apenas na precisão, enquanto a
+`Árvore de Decisão` e `Floresta Aleatória` tiveram melhores acurácia, recall e F1-Score. A
+`Árvore de Decisão` e a `Floresta Aleatória` tiveram desempenhos aproximados entre si.
+Neste caso, a vantagem da `Árvore de Decisão` se dá pelo fato de se tratar de um modelo
+facilmente interpretável, com regras claras para a classificação.
+
+Três diferentes experimentos foram realizados, com diferentes atributos e balanceamentos.
+O `experimento 3`, no cenário com `oversampling`, apresentou três métricas de
+avaliação com os maiores valores entre todos os experimentos. Esses resultados foram
+alcançados com a `Floresta Aleatória`, que obteve uma acurácia de 0,8130, um recall de
+0,8910 e um F1-Score de 0,8894. Contudo, por terem desempenhos próximos entre si, o
+experimento 1 apresenta destaque em relação aos demais, por sua maior simplicidade e
+clareza nos atributos utilizados. Neste caso, utilizaram-se os atributos propostos por Cruz
+et al. (2019), mas sem a inclusão da medida TF-IDF. Neste experimento, o cenário com
+balanceamento por `oversampling` se saiu melhor.
+
+No `experimento 1`, com `oversampling`, a `Floresta Aleatória` aparece com o melhor
+desempenho, alcançando uma acurácia de 0,8020 e um F1-Score de 0,8833. A `Árvore de
+Decisão` alcança valores próximos, com uma acurácia de 0,7730 e um F1-Score de 0,8638.
+A `Regressão Logística` se destaca na precisão, com um valor de 0,9337. Embora a `Floresta
+Aleatória` tenha um desempenho levemente melhor do que a `Árvore de Decisão`, destaca-se
+a vantagem da `Árvore de Decisão` por sua interpretabilidade.
+
+O balanceamento de classes se mostrou uma importante estratégia para gerar um
+equilíbrio nos dados, dividindo a base de treino com 50% de observações como textos
+persuasivos e 50% de observações como textos não persuasivos. Isso gerou um maior
+equilíbrio entre falsos positivos e falsos negativos, uma vez que diminuiu a tendência do
+modelo em classificar novas observações como persuasivas. Antes do balanceamento, a
+maioria das observações da base de teste era classificada como persuasiva. Como a maior
+parte de base de teste é, de fato, persuasiva, isso gerava um alto valor de falsos positivos,
+bem como de verdadeiros positivos.
+
+Por fim, apresenta-se a seguir ideias para trabalhos futuros, tais como:
+
+* Criação de um sistema em duas etapas. A primeira etapa, realizada neste trabalho,
+classifica o texto como persuasivo ou não. A segunda etapa, então, consiste
+em classificar qual ou quais técnicas de persuasão foram utilizadas nos memes
+classificados como persuasivos na primeira etapa.
+* Gerar novos atributos preditivos a partir do texto, como por exemplo, elementos
+semânticos. Desta forma, pode-se incluir atributos como total de adjetivos, total
+de verbos, entre outros.
+* Na geração de novos atributos pode-se, ainda, criar listas com palavras positivas
+ou negativas, gerando uma contagem para cada caso e utilizando esses valores
+como atributos. Essas listas podem ser criadas a partir de adjetivos ou de palavras
+específicas que façam parte do contexto do problema.
+* Avaliação de embeddings semânticos como atributos, método que já apresentou
+bons resultados em outros trabalhos recentes. Contudo, neste caso, há a desvantagem
+de não ser um método interpretável, diferentemente da Árvore de Decisão,
+por exemplo.
+* Criação de um léxico com unigramas e bigramas frequentemente presentes em
+textos persuasivos, podendo utilizar a frequência absoluta de cada caso como
+atributo preditivo.
+* Balancear a base de treino com diferentes proporções entre as duas classes, além
+da divisão realizada de 50% para persuasão e 50% para não persuasão.
+
